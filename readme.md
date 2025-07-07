@@ -1,6 +1,7 @@
-# Imersão DevOps - Alura Google Cloud
+# Imersão Alura - DevOps com Google Cloud
 
-Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e matrículas em uma instituição de ensino.
+Projeto de API desenvolvida em Python com o framework FastAPI.
+O objetivo é gerenciar alunos, cursos e matrículas em uma instituição de ensino.
 
 ## Pré-requisitos
 
@@ -16,7 +17,12 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 2. **Crie um ambiente virtual:**
 
    ```sh
+   # Linux
    python3 -m venv ./venv
+
+   # Windows
+   python -m venv ./venv
+   py -3 -m venv ./venv
    ```
 
 3. **Ative o ambiente virtual:**
@@ -33,8 +39,26 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
      venv\Scripts\activate
      ```
 
-      No windows foi necessário alterar a "Definição da política de execução" para conseguir rodar o script.
-      Este script cria o diretório "venv" no projeto.
+     **ERRO COMUM:** "File ... cannot be loaded because running scripts is disabled on this system".
+     Indica que a política de execução do PowerShell está impedindo que o script de ativação do ambiente virtual seja executado. Isso é uma medida de segurança do Windows.
+
+     **SOLUÇÃO:** Alterar a política de execução do PowerShell, definindo-a para RemoteSigned. Esta é a opção mais comum e recomendada para desenvolvedores. Ela permite que os scripts locais que você cria sejam executados, mas exige que scripts baixados da internet sejam assinados digitalmente.
+
+      Acesse o PowerShell como Administrador:
+
+      - Verifique a política de execução atual (opcional) com o seguinte comando:
+
+         ```sh
+            Get-ExecutionPolicy
+         ```
+
+         Provavelmente, ele mostrará Restricted, que é o padrão e impede a execução de scripts.
+
+      - Defina a política de execução com o seguinte comando:
+
+         ```sh
+         Set-ExecutionPolicy RemoteSigned
+         ```
 
    - Comando para desativar o ambiente virtual:
 

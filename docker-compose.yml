@@ -1,0 +1,58 @@
+# Este é o arquivo de configuração do Docker Compose, que define como os containers serão construídos e executados.
+# Ele permite que você defina múltiplos serviços (containers) e suas interações de maneira simples e organizada.
+# O Docker Compose é uma ferramenta que facilita a definição e execução de aplicações multi-container.
+# Com ele, você pode definir todos os serviços necessários para a sua aplicação em um único arquivo.
+# O docker-compose.yaml usará o Dockerfile para a construção da imagem do container, que contém todas as dependências e configurações necessárias.
+
+# Inicia a definição dos serviços (containers).
+services:
+  #  Serviço (container) da sua aplicação FastAPI.
+  api:
+    # Instrui o Compose a construir a imagem usando o Dockerfile no diretório atual (.).
+    build: .
+    # Define um nome fixo para o container, facilitando a identificação.
+    container_name: image_school_app
+
+    # Este é um ponto crucial para o desenvolvimento. 
+    # Ele "espelha" o diretório atual do seu computador (.) para o diretório /app dentro do container. 
+    # Qualquer alteração que você fizer nos arquivos localmente será refletida instantaneamente no container, 
+    # e o --reload do Uvicorn reiniciará o servidor. 
+    # O databse escola.db também será criado no seu diretório local, garantindo que os dados persistam mesmo que o container seja recriado.
+    volumes:
+      - .:/app
+    
+    # Mapeia a porta 8000 do seu computador para a porta 8000 do container, permitindo que você acesse a API pelo navegador. 
+    ports:
+      - "8000:8000"
+    
+    # Variáveis de ambiente para configurar o container.
+    # PYTHONUNBUFFERED=1 é usado para garantir que os logs sejam exibidos em tempo real no terminal, sem buffering.
+    # Isso é útil para ver os logs de saída do seu aplicativo enquanto ele está rodando
+    environment:
+      - PYTHONUNBUFFERED=1
+
+    # Sobrescreve o comando padrão do Dockerfile. Usamos uvicorn para iniciar o servidor.
+    # --host 0.0.0.0: Permite que a API seja acessível de fora do container.
+    # --reload: Habilita o recarregamento automático quando você altera o código, ideal para desenvolvimento.
+    #command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+      # Add outras variáveis de ambiente que sua aplicação possa precisar.
+        # Por exemplo, se você estiver usando um banco de dados, pode definir a URL de conexão aqui.
+          # DATABASE_URL=sqlite:///./escola.db
+          # Esta variável define a URL de conexão com o banco de dados SQLite.
+          # O caminho é relativo ao diretório /app dentro do container, que está vinculado ao diretório atual do seu computador.
+
+        # Outro exemplo de variável de ambiente que pode ser útil:
+          # SECRET_KEY=your_secret_key
+          # Esta variável pode ser usada para definir uma chave secreta para sua aplicação, se necessário.
+    
+    # networks define quais redes o container fará parte.
+    # Aqui, estamos conectando o container à rede app-network, que será definida mais adiante.
+    #networks:
+      #- app-network
+
+#networks:
+  # Define uma rede chamada app-network para permitir a comunicação entre os containers. *** Qdo há mais de um container ***
+  #app-network:
+    #driver: bridge  
+
