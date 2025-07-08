@@ -11,14 +11,14 @@
 
 ## Execute os seguintes comandos com o gcloud
 
-### Autenticar
+1. **Autenticação:**
 
     ```sh
         gcloud auth login
         gcloud auth list
     ```
 
-### Setar o Projeto
+2. **Configuração do Projeto:**
 
     ```sh
         gcloud config set project PROJECT_ID
@@ -26,15 +26,15 @@
         gcloud projects list
     ```
 
-### Realizar o Deploy
+3. **Realização do Deploy:**
 
     ```sh
         gcloud run deploy --port=8080
     ```
 
-## Executar o projeto
+4. **Execução do projeto:**
 
-Uma URL será gerada pelo Google Cloud Run, como por exemplo: [https://alura-imersao-devops-129315841380.southamerica-east1.run.app/docs](https://alura-imersao-devops-129315841380.southamerica-east1.run.app/docs)
+    Uma URL será gerada pelo Google Cloud Run, como por exemplo: [https://alura-imersao-devops-129315841380.southamerica-east1.run.app/docs](https://alura-imersao-devops-129315841380.southamerica-east1.run.app/docs)
 
 ## References
 
