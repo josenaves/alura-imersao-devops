@@ -1,16 +1,8 @@
-# Criar container da aplicação com Docker
+# Execute localmente com Docker
 
 O objetivo é tornar o processo portátil e escalavel, para rodar em qualquer ambiente.
 
-## Criar o arquivo **Dockerfile** sem extensão (obrigatório)
-
-É o arquivo que defini a imagem do container.
-
-## Criar o arquivo **.dockerignore** (Opcional)
-
-O objetivo é otimizar o container levando o minimo necessário para rodar a aplicação.
-
-## Executar o Docker
+## 1. Execute o daemon do Docker (engine)
 
 O daemon do Docker é o "motor" que realmente constrói e executa contêineres.
 Se o Docker Desktop não estiver rodando (ou não tiver inicializado completamente), o cliente Docker não conseguirá se conectar a ele.
@@ -24,36 +16,42 @@ A chave é sempre ter um daemon do Docker ativo e acessível para que seus coman
 
 Alguns comandos que podem ajudar a verificar se o Docker está rodando:
 
-    ```sh
-    docker info
-    docker ps .
-    docker images
-    ```
+```sh
+docker info
+docker ps .
+docker images
+```
 
-## Construir a imagem
+## 2. Crie o Dockerfile
 
-    ```sh
-    docker build -t image_school_app .
-    ```
+Arquivo obrigatório, **Dockerfile**, sem a extensão, deve ser criado na raiz do projeto.
+Defini a imagem do container a ser construído.
 
-## Verificar se a imagem foi criada via terminal
+## 3. Crie o Docker Ignore
 
-    ```sh
-    docker images
-    ```
+Arquivo opcional, **.dockerignore**, deve ser criado na raiz do projeto.
+Otimiza o container, levando o minimo necessário para rodar a aplicação.
 
-## Executa a imagem e roda a aplicação que está dentro
+## 4. Construa a imagem do Container
 
-    ```sh
-    docker run -p 8000:8000 image_school_app
-    ```
+```sh
+docker build -t image_school_app .
+docker images
+```
 
-- A porta é informada 2x porque estamos mapeando a porta do container com a porta da aplicação.
+## 5. Execute o container
 
-- Poderiam ser portas diferentes.
+```sh
+docker run -p 8000:8000 image_school_app
+```
 
-- Após a execução, sua API estará disponível em [http://localhost:8000/docs](http://localhost:8000/docs), exatamente como antes, mas agora rodando de forma isolada e portável dentro de um container Docker!
+Para parar a aplicação, pressione Ctrl + C no terminal onde o container está rodando.
+A porta é informada 2x porque estamos mapeando a porta do container com a porta da aplicação.
+Poderiam ser portas diferentes.
+Você também pode usar o Docker Desktop, ao invés do terminal.
 
-- Para parar a aplicação, pressione Ctrl + C no terminal onde o container está rodando.
+## 6. Acesse a aplicação com a documentação interativa
 
-- Você também pode usar o Docker Desktop, ao invés do terminal.
+Abra o navegador e acesse: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+Exatamente como antes, mas agora rodando de forma isolada e portável dentro de um container Docker!

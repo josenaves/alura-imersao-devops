@@ -1,23 +1,27 @@
-# Automatizar com Docker Compose
+# Automatize com Docker Compose
 
 Usado para otimizar processos manuais e repetitivos.
 
-## Passo a passo
+## 1. Execute o daemon do Docker (engine)
 
-    - 1. Instalar e executar o Docker Desktop (daemon do Docker ou engine do Docker).
-    - 2. Criar o arquivo "Dockerfile" para configurar a imagem do container.
-    - 3. Criar o arquivo ".dockerignore" para otimizar o container.
-    - 4. Criar o arquivo "docker-compose.yml" organizar o pipeline de build e deploy.
-    - 5. Executar o docker-compose via terminal (parm "-d" para rodar em background).
+## 2. Crie o Docker Compose
 
-        ```sh
-        docker compose up
+Crie o arquivo **docker-compose.yml** na raiz do projeto, assim como criou os arquivos **Dockerfile** e **.dockerignore**.
+O compose organiza o pipeline de build e deploy.
 
-        ## optional parms
-        # -d para rodar em background
-        #docker compose up - d
-        ```
+## 3. Execute docker-compose.yml
 
-    Após a execução, sua API estará disponível em [http://localhost:8000/docs](http://localhost:8000/docs), exatamente como antes, mas agora rodando de forma isolada e portável dentro de um container Docker!
+```sh
+    docker compose up
 
-    Para parar a aplicação, pressione Ctrl + C no terminal onde o compose está rodando.
+    # roda em background
+    #docker compose up - d    
+```
+
+Para parar a aplicação, pressione Ctrl + C no terminal onde o container está rodando.
+
+## 4. Acesse a aplicação com a documentação interativa
+
+Abra o navegador e acesse: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+Exatamente como antes, mas agora com menos passos!
