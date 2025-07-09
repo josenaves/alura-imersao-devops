@@ -13,44 +13,15 @@
 
 2. **Ative o ambiente virtual:**
 
-   - No Linux/Mac:
+   ```sh
+   # Linux/Mac
+   source venv/bin/activate
 
-     ```sh
-     source venv/bin/activate
-     ```
+   # Windows
+   venv\Scripts\activate
+   ```
 
-   - No Windows:
-
-     ```sh
-     venv\Scripts\activate
-     ```
-
-     **ERRO COMUM:** "File ... cannot be loaded because running scripts is disabled on this system".
-     Indica que a política de execução do PowerShell está impedindo que o script de ativação do ambiente virtual seja executado. Isso é uma medida de segurança do Windows.
-
-     **SOLUÇÃO:** Alterar a política de execução do PowerShell, definindo-a para RemoteSigned. Esta é a opção mais comum e recomendada para desenvolvedores. Ela permite que os scripts locais que você cria sejam executados, mas exige que scripts baixados da internet sejam assinados digitalmente.
-
-      Acesse o PowerShell como Administrador:
-
-      - Verifique a política de execução atual (opcional) com o seguinte comando:
-
-         ```sh
-            Get-ExecutionPolicy
-         ```
-
-         Provavelmente, ele mostrará Restricted, que é o padrão e impede a execução de scripts.
-
-      - Defina a política de execução com o seguinte comando:
-
-         ```sh
-         Set-ExecutionPolicy RemoteSigned
-         ```
-
-   - Comando para desativar o ambiente virtual:
-
-      ```sh
-     deactivate
-     ```
+   Ao tentar ativar o ambiente virtual no windows pode ocorrer o seguinte erro: "File ... cannot be loaded because running scripts is disabled on this system". Para resolver consulte a seguinte documentação: [Configuração no Power Shell do Windows](./readme-config-powershell.md)**
 
 3. **Instale as dependências:**
 
@@ -58,7 +29,7 @@
    pip install -r requirements.txt
    ```
 
-   **pip** é o gerenciador de pacotes e módulos do Python (semelhante ao npm).
+   **pip** é o gerenciador de pacotes e módulos do Python (semelhante ao npm do JavaScript).
 
 4. **Execute a aplicação:**
 
