@@ -3,7 +3,7 @@
 1. **Crie um ambiente virtual:**
 
    ```sh
-   # Linux
+   # Linux/Mac
    python3 -m venv ./venv
 
    # Windows
