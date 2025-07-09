@@ -1,6 +1,6 @@
 # Execute localmente com Docker
 
-O objetivo é tornar o processo portátil e escalavel, para rodar em qualquer ambiente.
+O objetivo é tornar o processo portátil e escalável, para rodar em qualquer ambiente.
 
 1. **Execute o daemon do Docker (engine):**
 
@@ -9,8 +9,8 @@ O objetivo é tornar o processo portátil e escalavel, para rodar em qualquer am
 
     Sempre que você for executar "qualquer coisa" via contêiner, seja um docker build, docker run, docker pull ou qualquer outro comando docker, você precisa que o daemon do Docker esteja em execução. O cliente Docker que você usa no terminal (docker comando) é apenas uma interface que se comunica com esse daemon. O daemon é o componente principal que gerencia as imagens, contêineres, volumes e redes.
 
-    - Se Windows/macOS, **Docker Desktop** é a maneira mais prática de ter o daemon do Docker rodando.
-    - Se Linux, **Docker Engine** é instalado como um serviço de sistema, e é ele quem fica rodando.
+    - **Windows/macOS:** Docker Desktop é a maneira mais prática de ter o daemon do Docker rodando.
+    - **Linux:** Docker Engine é instalado como um serviço de sistema, e é ele quem fica rodando.
 
     A chave é sempre ter um daemon do Docker ativo e acessível para que seus comandos docker funcionem.
 
@@ -24,13 +24,11 @@ O objetivo é tornar o processo portátil e escalavel, para rodar em qualquer am
 
 2. **Crie o Dockerfile:**
 
-    Arquivo obrigatório, **Dockerfile**, sem a extensão, deve ser criado na raiz do projeto.
-    Defini a imagem do container a ser construído.
+    Crie um arquivo com o nome **Dockerfile** e sem extensão na raiz do projeto. Este arquivo é obrigatório para se trabalhar com Docker. Ele é responsável por definir a imagem do container a ser construído.
 
 3. **Crie o Docker Ignore:**
 
-    Arquivo opcional, **.dockerignore**, deve ser criado na raiz do projeto.
-    Otimiza o container, levando o minimo necessário para rodar a aplicação.
+    Crie um arquivo com o nome **.dockerignore** e sem extensão na raiz do projeto. Este arquivo é opcional, e tem a finalidade de otimizar o container, levando o minimo necessário para rodar a aplicação.
 
 4. **Construa a imagem do Container:**
 
@@ -45,10 +43,7 @@ O objetivo é tornar o processo portátil e escalavel, para rodar em qualquer am
     docker run -p 8000:8000 image_school_app
     ```
 
-    Para parar a aplicação, pressione Ctrl + C no terminal onde o container está rodando.
-    A porta é informada 2x porque estamos mapeando a porta do container com a porta da aplicação.
-    Poderiam ser portas diferentes.
-    Você também pode usar o Docker Desktop, ao invés do terminal.
+    Para parar a aplicação, pressione Ctrl + C no terminal onde o container está rodando ou use o Docker Desktop.
 
 6. **Acesse a aplicação com a documentação interativa:**
 
