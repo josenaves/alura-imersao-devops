@@ -21,7 +21,11 @@
    venv\Scripts\activate
    ```
 
-   Ao tentar ativar o ambiente virtual no windows pode ocorrer o seguinte erro: "File ... cannot be loaded because running scripts is disabled on this system". Para resolver consulte a seguinte documentação: [Configuração no Power Shell do Windows](./readme-config-powershell.md)**
+   Ao tentar ativar o ambiente virtual no windows pode ocorrer o seguinte erro:
+
+   "File ... cannot be loaded because running scripts is disabled on this system".
+
+   Para resolver consulte a seguinte documentação: [Configuração no Power Shell do Windows](./readme-config-powershell.md)**
 
 3. **Instale as dependências:**
 
