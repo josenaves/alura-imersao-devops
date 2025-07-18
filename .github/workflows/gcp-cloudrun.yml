@@ -24,11 +24,11 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/YOUR-REPO/alura-imersao-devops:${{ github.sha }} .
+        docker build -t southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/josenaves/alura-imersao-devops:${{ github.sha }} .
 
     - name: Push Docker image to Artifact Registry
       run: |
-        docker push southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/YOUR-REPO/alura-imersao-devops:${{ github.sha }}
+        docker push southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/josenaves/alura-imersao-devops:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       run: |
