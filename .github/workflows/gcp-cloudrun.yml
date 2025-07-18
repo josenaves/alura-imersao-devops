@@ -19,16 +19,16 @@ jobs:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         export_default_credentials: true
 
-    - name: Configure Docker for Google Cloud
-      run: gcloud auth configure-docker
+    - name: Configure Docker for Artifact Registry
+      run: gcloud auth configure-docker southamerica-docker.pkg.dev
 
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/alura-imersao-devops:${{ github.sha }} .
+        docker build -t southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/YOUR-REPO/alura-imersao-devops:${{ github.sha }} .
 
-    - name: Push Docker image to GCR
+    - name: Push Docker image to Artifact Registry
       run: |
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/alura-imersao-devops:${{ github.sha }}
+        docker push southamerica-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/YOUR-REPO/alura-imersao-devops:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       run: |
